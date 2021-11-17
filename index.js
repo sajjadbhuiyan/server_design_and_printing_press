@@ -20,6 +20,7 @@ async function run(){
         await client.connect();
         const database = client.db('design_printing');
         const serviceCollection = database.collection('services');
+        const orderCollection = database.collection('orders');
 
         // GET services
         app.get('/services', async(req, res) => {
@@ -53,7 +54,15 @@ async function run(){
              const query = {_id:ObjectId(id)};
              const result = await serviceCollection.deleteOne(query);
              res.json(result);
-         })   
+         })  
+         
+        // Add Order API
+        app.post('/orders', async(req, res) =>{
+            const order = req.body;
+            console.log('order', order);
+            res.send({message: 'done'});
+        }) 
+         
     }
     finally{
       // await client.close();
