@@ -63,7 +63,7 @@ async function run(){
 run().catch(console.dir);
 
 app.get('/', (req, res) =>{
-    res.send('Hello mongodb, I am success install');
+    res.send('Hello SB Printing and Design');
 });
 
 app.listen(port, ()=>{
